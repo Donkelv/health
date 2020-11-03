@@ -3,8 +3,6 @@ import 'package:health/home.dart';
 import 'package:pedometer/pedometer.dart';
 import 'dart:async';
 
-
-
 class AuthRoute extends StatefulWidget {
   @override
   _AuthRouteState createState() => _AuthRouteState();
@@ -18,9 +16,7 @@ class _AuthRouteState extends State<AuthRoute> {
   String _dateTime = "...";
   String backImage = "assets/background.png";
 
-
-
-  void onStepCount(StepCount event){
+  void onStepCount(StepCount event) {
     print(event);
     DateTime timeStamp = event.timeStamp;
     setState(() {
@@ -29,16 +25,15 @@ class _AuthRouteState extends State<AuthRoute> {
     });
   }
 
-  void onPedestrianStatusChanged(PedestrianStatus event){
+  void onPedestrianStatusChanged(PedestrianStatus event) {
     print(event);
     //DateTime timeStamp = event.timeStamp;
     setState(() {
       _status = event.status.toString();
-
     });
   }
 
-  void onPedestrianStatusError(error){
+  void onPedestrianStatusError(error) {
     print("pedestrian status error: $error");
     setState(() {
       _status = 'Pedestrian Status Not Available';
@@ -46,19 +41,21 @@ class _AuthRouteState extends State<AuthRoute> {
     print(_status);
   }
 
-  void onStepCountError(error){
+  void onStepCountError(error) {
     print("step count error $error");
     setState(() {
       _steps = "Unable To Count Your Steps";
     });
   }
 
-  void initPlatformState(){
+  void initPlatformState() {
     _pedestrianStatusStream = Pedometer.pedestrianStatusStream;
-    _pedestrianStatusStream.listen(onPedestrianStatusChanged).onError(onPedestrianStatusError);
+    _pedestrianStatusStream
+        .listen(onPedestrianStatusChanged)
+        .onError(onPedestrianStatusError);
     _stepCountStream = Pedometer.stepCountStream;
     _stepCountStream.listen(onStepCount).onError(onStepCountError);
-    if(!mounted) return;
+    if (!mounted) return;
   }
 
   @override
@@ -67,18 +64,20 @@ class _AuthRouteState extends State<AuthRoute> {
     initPlatformState();
   }
 
-
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+
     return Scaffold(
       //backgroundColor: Colors.white,
       body: Container(
+        height: size.height,
+        width: size.width,
         decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage(backImage),
-            fit: BoxFit.cover,
-          )
-        ),
+            image: DecorationImage(
+          image: AssetImage(backImage),
+          fit: BoxFit.cover,
+        )),
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 100.0),
@@ -94,4 +93,3 @@ class _AuthRouteState extends State<AuthRoute> {
     );
   }
 }
-

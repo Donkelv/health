@@ -15,11 +15,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         fontFamily: "Inter",
         primarySwatch: Colors.blue,
-        
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: AuthRoute(),
     );
   }
 }
-

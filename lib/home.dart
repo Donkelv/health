@@ -2,13 +2,16 @@ import 'package:flutter/material.dart';
 
 import 'sections/home_profile.dart';
 import 'sections/medical_details.dart';
+import 'sections/privacy.dart';
 
 class Home extends StatelessWidget {
   const Home({
     Key key,
     @required String steps,
     @required String dateTime,
-  }) : _steps = steps, _dateTime = dateTime, super(key: key);
+  })  : _steps = steps,
+        _dateTime = dateTime,
+        super(key: key);
 
   final String _steps;
   final String _dateTime;
@@ -23,9 +26,12 @@ class Home extends StatelessWidget {
         SizedBox(
           height: 40.0,
         ),
-        MedicalDetails()
+        MedicalDetails(),
+        SizedBox(
+          height: 28.0,
+        ),
+        PrivacySection(),
       ],
     );
   }
 }
-

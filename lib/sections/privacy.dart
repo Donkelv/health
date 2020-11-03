@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MedicalDetails extends StatelessWidget {
-  const MedicalDetails({
+class PrivacySection extends StatelessWidget {
+  const PrivacySection({
     Key key,
   }) : super(key: key);
 
@@ -12,7 +12,7 @@ class MedicalDetails extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Medical Details",
+            "Privacy",
             style: TextStyle(
               color: Colors.black,
               fontSize: 12.0,
@@ -38,7 +38,7 @@ class MedicalDetails extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        "Goals",
+                        "Medical ID",
                         style: TextStyle(
                           color: Colors.black,
                           fontSize: 12.0,
@@ -62,7 +62,7 @@ class MedicalDetails extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Health Profile",
+                          "Settings",
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 12.0,
