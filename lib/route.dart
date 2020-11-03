@@ -16,6 +16,7 @@ class _AuthRouteState extends State<AuthRoute> {
   String _status = '...';
   String _steps = '...';
   String _dateTime = "...";
+  String backImage = "assets/background.png";
 
 
 
@@ -70,7 +71,26 @@ class _AuthRouteState extends State<AuthRoute> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Home(steps: _steps, dateTime: _dateTime),
+      //backgroundColor: Colors.white,
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(backImage),
+            fit: BoxFit.cover,
+          )
+        ),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 100.0),
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Home(steps: _steps, dateTime: _dateTime),
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

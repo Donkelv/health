@@ -10,9 +10,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Kevins Health App',
       theme: ThemeData(
-        
+        fontFamily: "Inter",
         primarySwatch: Colors.blue,
         
         visualDensity: VisualDensity.adaptivePlatformDensity,

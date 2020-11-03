@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'sections/home_profile.dart';
+import 'sections/medical_details.dart';
+
 class Home extends StatelessWidget {
   const Home({
     Key key,
@@ -13,17 +16,16 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Steps Taken", style: TextStyle(fontSize: 30.0, color: Colors.black,),),
-        Row(
-          children: [
-            Text("$_steps", style: TextStyle(color: Colors.black, fontSize: 60.0, fontWeight: FontWeight.w500,),),
-            Text("$_dateTime", style: TextStyle(color: Colors.black, fontSize: 15.0),)
-          ],
-        )
+        HomeProfileSection(),
+        SizedBox(
+          height: 40.0,
+        ),
+        MedicalDetails()
       ],
     );
   }
 }
+
