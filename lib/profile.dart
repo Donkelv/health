@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:health/home_section/home_top.dart';
 
+import 'package:health/profile_section/home_profile.dart';
 
-class Home extends StatelessWidget {
-  const Home({
+import 'profile_section/medical_details.dart';
+import 'profile_section/privacy.dart';
+
+class Profile extends StatelessWidget {
+  const Profile({
     Key key,
     @required String steps,
     @required String dateTime,
@@ -20,8 +23,15 @@ class Home extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        TopHome(),
-        
+        HomeProfileSection(),
+        SizedBox(
+          height: 40.0,
+        ),
+        MedicalDetails(),
+        SizedBox(
+          height: 28.0,
+        ),
+        PrivacySection(),
       ],
     );
   }
