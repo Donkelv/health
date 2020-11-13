@@ -8,6 +8,8 @@ void main() async{
   await Hive.initFlutter();
   await Hive.openBox("steps");
   runApp(MyApp());
+  print("just testing");
+
 }
 
 class MyApp extends StatelessWidget {
