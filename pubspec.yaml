@@ -31,13 +31,15 @@ dependencies:
   pedometer: ^2.0.2
   hive: ^1.4.4+1
   hive_flutter: ^0.3.1
+  flutter_riverpod: ^0.12.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   hive_generator: ^0.8.2
-  build_runner: ^1.10.4
+  #build_runner: ^1.10.4
+  
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

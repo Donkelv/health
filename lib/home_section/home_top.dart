@@ -1,10 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:health/app_logic/walk_tracker.dart';
 
-class TopHome extends StatelessWidget {
-  const TopHome({
-    Key key,
-  }) : super(key: key);
+class TopHome extends StatefulWidget {
+  final WalkNotifier provider;
+  TopHome({this.provider});
 
+  @override
+  _TopHomeState createState() => _TopHomeState();
+}
+
+
+
+class _TopHomeState extends State<TopHome> {
+  @override
+  void initState() { 
+    super.initState();
+    widget.provider.initPlatformState();
+  }
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -29,7 +42,13 @@ class TopHome extends StatelessWidget {
         SizedBox(
           height: 25.0,
         ),
-        Text("Highlights", style: TextStyle(color: Colors.black, fontSize: 13.0, fontWeight: FontWeight.bold,),),
+        Text("${widget.provider.walk}", style: TextStyle(color: Colors.black, fontSize: 13.0, fontWeight: FontWeight.bold,),),
+        /* Consumer(
+          builder: (_, watch, __){
+            final walkProvide = watch(walkProvider);
+            return Text("${walkProvide.walk}", style: TextStyle(color: Colors.black, fontSize: 13.0, fontWeight: FontWeight.bold,),);
+          },
+    ),  */
       ],
     );
   }
