@@ -9,9 +9,12 @@ import 'dart:async';
 
  final walkProvider = ChangeNotifierProvider((ref){
    return WalkNotifier();
- });
+ }); 
 
-  Stream<StepCount> _stepCountStream;
+ Pedometer _pedometer;
+ StreamSubscription<int> _subscription;
+
+ Stream<StepCount> _stepCountStream;
  Stream<PedestrianStatus> _pedestrianStatusStream;
 
 
@@ -66,7 +69,7 @@ class WalkNotifier extends ChangeNotifier{
   String get stepCountError => _stepCountError;
 
   
-  
+ 
   
   void initPlatformState() {
     _pedestrianStatusStream = Pedometer.pedestrianStatusStream;
