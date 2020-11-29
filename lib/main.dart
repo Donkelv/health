@@ -9,10 +9,10 @@ void main() async{
   await Hive.initFlutter();
   await Hive.openBox<int>("steps");
   runApp(
-    ProviderScope(
+  ProviderScope(
     child: MyApp(),
     ),
-    );
+  );
   //print("just testing");
 
 }
