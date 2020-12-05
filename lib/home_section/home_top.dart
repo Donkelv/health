@@ -64,6 +64,7 @@ class _TopHomeState extends State<TopHome> {
               child: Container(
                 color: Colors.transparent,
                 width: size.width,
+                //height: 200.0,
                 child: Padding(
                   padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
                   child: Column(
@@ -109,17 +110,21 @@ class _TopHomeState extends State<TopHome> {
       titlesData: FlTitlesData(
         show: true,
         bottomTitles: SideTitles(
-          showTitles: true,
+          showTitles: false,
           reservedSize: 22,
           getTextStyles: (value) =>
-              const TextStyle(color: Color(0xff68737d), fontWeight: FontWeight.bold, fontSize: 16),
+              const TextStyle(color: Color(0xff68737d), fontWeight: FontWeight.bold, fontSize: 10,),
           getTitles: (value) {
             switch (value.toInt()) {
+              case 1:
+                return '9:00';
               case 2:
+                return '10:00';
+              case 3:
                 return '12:00';
-              case 5:
+              case 4:
                 return '4:00';
-              case 8:
+              case 5:
                 return '8:00';
             }
             return '';
@@ -136,11 +141,15 @@ class _TopHomeState extends State<TopHome> {
           getTitles: (value) {
             switch (value.toInt()) {
               case 1:
-                return '1k';
+                return '100';
+              case 2:
+                return '500';
               case 3:
-                return '10k';
+                return '1k';
+              case 4:
+                return '5k';
               case 5:
-                return '50k';
+                return '10k';
             }
             return '';
           },
@@ -148,8 +157,10 @@ class _TopHomeState extends State<TopHome> {
           margin: 12,
         ),
       ),
-      borderData:
-          FlBorderData(show: true, border: Border(top: BorderSide(color: Colors.black.withOpacity(0.05), width: 1.0,), bottom:BorderSide(color: Colors.black.withOpacity(0.05), width: 1.0,), ),/* border: Border.all(color: const Color(0xff37434d), width: 1) */),
+      borderData: FlBorderData(
+        border: Border(top: BorderSide.none, bottom: BorderSide.none, left: BorderSide.none, right: BorderSide.none),
+      ),
+         // FlBorderData(show: true, border: Border(top: BorderSide(color: Colors.black.withOpacity(0.05), width: 1.0,), bottom:BorderSide(color: Colors.black.withOpacity(0.05), width: 1.0,), ),/* border: Border.all(color: const Color(0xff37434d), width: 1) */),
       minX: 0,
       maxX: 11,
       minY: 0,
