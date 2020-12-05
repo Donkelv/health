@@ -10,9 +10,9 @@ void main() async{
   await Hive.openBox<int>("steps");
   runApp(
     ProviderScope(
-    child: MyApp(),
+      child: MyApp(),
     ),
-    );
+  );
   //print("just testing");
 
 }

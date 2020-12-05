@@ -41,7 +41,10 @@ class _AuthRouteState extends State<AuthRoute> {
             image: DecorationImage(
           image: AssetImage(backImage),
           fit: BoxFit.cover,
-        ),),
+          
+        ),
+        
+        ),
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 100.0),
