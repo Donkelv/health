@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:health/app_logic/walk_tracker.dart';
@@ -15,8 +17,10 @@ class _AuthRouteState extends State<AuthRoute> {
   String backImage = "assets/background.png";
   
   WalkNotifier walkNotifier = WalkNotifier();
-  
 
+  double _sigmaX = 3.0;
+  double _sigmaY = 3.0;
+  double _opacity = 0.5;
 
 
   
@@ -45,12 +49,15 @@ class _AuthRouteState extends State<AuthRoute> {
         ),
         
         ),
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 100.0),
-            child: SingleChildScrollView(
+        child: SingleChildScrollView(
+          child: Container(
+            width: size.width,
+            height: size.height,
+            color: Color(0xFFC6D2D5).withOpacity(0.1),
+            child: BackdropFilter(
+              filter:ImageFilter.blur(sigmaX: _sigmaX, sigmaY: _sigmaY),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                padding: const EdgeInsets.symmetric(vertical: 100.0, horizontal: 20.0),
                 child: Home(),
               ),
             ),
