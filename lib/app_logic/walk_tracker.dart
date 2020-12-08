@@ -17,6 +17,8 @@ import 'dart:async';
  Stream<StepCount> _stepCountStream;
  Stream<PedestrianStatus> _pedestrianStatusStream;
 
+//i dont know how to continue
+
 
 class WalkNotifier extends ChangeNotifier{
   /* WalkNotifier([this._walk = 0]); */
