@@ -107,8 +107,7 @@ class _TopHomeState extends State<TopHome> {
     );
   }
 
-  BarChartData mainData(){
-    return BarChartData(
+  BarChartData mainData() => BarChartData(
       barTouchData: BarTouchData(
         touchTooltipData: BarTouchTooltipData(
           tooltipBgColor: Colors.black,
@@ -116,25 +115,25 @@ class _TopHomeState extends State<TopHome> {
             String weekDay;
             switch (group.x.toInt()) {
               case 0:
-                weekDay = 'Monday';
+                weekDay = 'Sunday';
                 break;
               case 1:
-                weekDay = 'Tuesday';
+                weekDay = 'Monday';
                 break;
               case 2:
-                weekDay = 'Wednesday';
+                weekDay = 'Tuesday';
                 break;
               case 3: 
-                weekDay = "Thursday";
+                weekDay = "Wednesday";
                 break;
               case 4:
-                weekDay = "Friday";
+                weekDay = "Thursday";
                 break;
               case 5: 
-                weekDay = 'Satuday';
+                weekDay = 'Friday';
                 break;
               case 6: 
-                weekDay = 'Sunday';
+                weekDay = 'Saturday';
                 break;
                 
              // default: null;
@@ -161,19 +160,19 @@ class _TopHomeState extends State<TopHome> {
           getTitles: (double value){
             switch (value.toInt()) {
               case 0:
-              return 'M';
-              case 1:
-              return 'T';
-              case 2:
-              return 'W';
-              case 3:
-              return 'Th';
-              case 4:
-              return 'F';
-              case 5:
-              return 'Sa';
-              case 6:
               return 'Su';
+              case 1:
+              return 'M';
+              case 2:
+              return 'T';
+              case 3:
+              return 'W';
+              case 4:
+              return 'Th';
+              case 5:
+              return 'Fr';
+              case 6:
+              return 'Sa';
 
                 
                 
@@ -191,7 +190,6 @@ class _TopHomeState extends State<TopHome> {
       ),
       barGroups: showingGroups(),
     );
-  }
 
 
   List<BarChartGroupData> showingGroups() => List.generate(7, (index) {
@@ -242,99 +240,6 @@ class _TopHomeState extends State<TopHome> {
       showingTooltipIndicators: showTooltips,
     );
   }
-
- /*  LineChartData mainData() {
-    return LineChartData(
-      gridData: FlGridData(
-        show: false,
-        drawVerticalLine: false,
-        
-      ),
-      titlesData: FlTitlesData(
-        show: true,
-        bottomTitles: SideTitles(
-          showTitles: false,
-          reservedSize: 22,
-          getTextStyles: (value) =>
-              const TextStyle(color: Color(0xff68737d), fontWeight: FontWeight.bold, fontSize: 10,),
-          getTitles: (value) {
-            switch (value.toInt()) {
-              case 1:
-                return '9:00';
-              case 2:
-                return '10:00';
-              case 3:
-                return '12:00';
-              case 4:
-                return '4:00';
-              case 5:
-                return '8:00';
-            }
-            return '';
-          },
-          margin: 8,
-        ),
-        leftTitles: SideTitles(
-          showTitles: true,
-          getTextStyles: (value) => const TextStyle(
-            color: Color(0xff67727d),
-            fontWeight: FontWeight.bold,
-            fontSize: 15,
-          ),
-          getTitles: (value) {
-            switch (value.toInt()) {
-              case 1:
-                return '100';
-              case 2:
-                return '500';
-              case 3:
-                return '1k';
-              case 4:
-                return '5k';
-              case 5:
-                return '10k';
-            }
-            return '';
-          },
-          reservedSize: 28,
-          margin: 12,
-        ),
-      ),
-      borderData: FlBorderData(
-        border: Border(top: BorderSide.none, bottom: BorderSide.none, left: BorderSide.none, right: BorderSide.none),
-      ),
-         // FlBorderData(show: true, border: Border(top: BorderSide(color: Colors.black.withOpacity(0.05), width: 1.0,), bottom:BorderSide(color: Colors.black.withOpacity(0.05), width: 1.0,), ),/* border: Border.all(color: const Color(0xff37434d), width: 1) */),
-      minX: 0,
-      maxX: 11,
-      minY: 0,
-      maxY: 6,
-      lineBarsData: [
-        LineChartBarData(
-          spots: [
-            FlSpot(0, 3),
-            FlSpot(2.6, 2),
-            FlSpot(4.9, 5),
-            FlSpot(6.8, 3.1),
-            FlSpot(8, 4),
-            FlSpot(9.5, 3),
-            FlSpot(11, 4),
-          ],
-          isCurved: true,
-          colors: gradientColors,
-          barWidth: 5,
-          isStrokeCapRound: true,
-          dotData: FlDotData(
-            show: false,
-          ),
-          belowBarData: BarAreaData(
-            show: false,
-            colors: gradientColors.map((color) => color.withOpacity(0.3)).toList(),
-          ),
-        ),
-      ],
-    );
-  }
- */
 
 }
 

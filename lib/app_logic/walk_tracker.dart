@@ -45,17 +45,29 @@ class WalkNotifier extends ChangeNotifier{
 
   void onStepCount(event) {
     print(event.steps);
+    this._walk = event.steps;
+     notifyListeners();
     //print(_walk);
     //DateTime timeStamp = event.timeStamp;
     if (Jiffy().day == 0) {
       stepsBox.put(days[0], event.steps );
     } else if (Jiffy().day == 1) {
       stepsBox.put(days[1], event.steps);
+    } else if (Jiffy().day == 2){
+      stepsBox.put(days[2], event.steps);
+    } else if (Jiffy().day == 3){
+      stepsBox.put(days[3], event.steps);
+    } else if (Jiffy().day == 4){
+      stepsBox.put(days[4], event.steps);
+    } else if (Jiffy().day == 5) {
+      stepsBox.put(days[5], event.steps);
+    } else if (Jiffy().day == 6) {
+      stepsBox.put(days[6], event.steps);
     }
-    this._walk = event.steps;
+    
     
     //Jiffy().day;
-    notifyListeners();
+   
    
   }
 
