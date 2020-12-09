@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pedometer/pedometer.dart';
 import 'dart:async';
 import 'package:jiffy/jiffy.dart';
-
+import 'package:hive/hive.dart';
 
 
 
@@ -35,17 +35,22 @@ class WalkNotifier extends ChangeNotifier{
   
 
   String _stepCountError;
+
+  List days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   
- var dateTime = DateTime.now();
+ //var dateTime = DateTime.now();
+  Box<int> stepsBox = Hive.box('steps');
+ //List steps = [];
   //Jiffy(dateTime); 
 
   void onStepCount(event) {
     print(event.steps);
     //print(_walk);
     //DateTime timeStamp = event.timeStamp;
-    DateTime timeStamp = event.timeStamp;
-    if (dateTime == timeStamp) {
-      
+    if (Jiffy().day == 0) {
+      stepsBox.put(days[0], event.steps );
+    } else if (Jiffy().day == 1) {
+      stepsBox.put(days[1], event.steps);
     }
     this._walk = event.steps;
     
