@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pedometer/pedometer.dart';
 import 'dart:async';
-
+import 'package:jiffy/jiffy.dart';
 
 
 
@@ -20,6 +20,9 @@ import 'dart:async';
 //i dont know how to continue
 
 
+
+
+
 class WalkNotifier extends ChangeNotifier{
   /* WalkNotifier([this._walk = 0]); */
   int _walk;
@@ -33,12 +36,20 @@ class WalkNotifier extends ChangeNotifier{
 
   String _stepCountError;
   
+ var dateTime = DateTime.now();
+  //Jiffy(dateTime); 
 
   void onStepCount(event) {
     print(event.steps);
     //print(_walk);
     //DateTime timeStamp = event.timeStamp;
+    DateTime timeStamp = event.timeStamp;
+    if (dateTime == timeStamp) {
+      
+    }
     this._walk = event.steps;
+    
+    //Jiffy().day;
     notifyListeners();
    
   }
@@ -85,9 +96,12 @@ class WalkNotifier extends ChangeNotifier{
 
   
 
+  void save(){
+
+   
+  }
+
 }
-
-
 
 
 //WalkNotifier walkNotifier;
