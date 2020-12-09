@@ -126,18 +126,25 @@ class WalkNotifier extends ChangeNotifier{
     //DateTime timeStamp = event.timeStamp;
     if (Jiffy().day == 0) {
       stepsBox.put(days[0], event.steps );
+      this._walk = sundayWalk;
     } else if (Jiffy().day == 1) {
       stepsBox.put(days[1], event.steps);
+      this._walk = mondayWalk;
     } else if (Jiffy().day == 2){
       stepsBox.put(days[2], event.steps);
+      this._walk = tuesdayWalk;
     } else if (Jiffy().day == 3){
       stepsBox.put(days[3], event.steps);
+      this._walk = wednesdayWalk;
     } else if (Jiffy().day == 4){
       stepsBox.put(days[4], event.steps);
+      this._walk = fridayWalk;
     } else if (Jiffy().day == 5) {
       stepsBox.put(days[5], event.steps);
+      this._walk = saturdayWalk;
     } else if (Jiffy().day == 6) {
       stepsBox.put(days[6], event.steps);
+      this._walk = sundayWalk;
     }
 
     //this._walk = stepsBox.get(Jiffy().day);

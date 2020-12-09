@@ -195,19 +195,19 @@ class _TopHomeState extends State<TopHome> {
   List<BarChartGroupData> showingGroups(WalkNotifier provider) => List.generate(7, (index) {
     switch (index) {
           case 0:
-            return makeGroupData(0, provider.sundayWalk., isTouched: index == touchedIndex);
+            return makeGroupData(0, provider.sundayWalk.toDouble(), isTouched: index == touchedIndex);
           case 1:
-            return makeGroupData(1, 6.5, isTouched: index == touchedIndex);
+            return makeGroupData(1, provider.mondayWalk.toDouble(), isTouched: index == touchedIndex);
           case 2:
-            return makeGroupData(2, 5, isTouched: index == touchedIndex);
+            return makeGroupData(2, provider.tuesdayWalk.toDouble(), isTouched: index == touchedIndex);
           case 3:
-            return makeGroupData(3, 7.5, isTouched: index == touchedIndex);
+            return makeGroupData(3, provider.wednesdayWalk.toDouble(), isTouched: index == touchedIndex);
           case 4:
-            return makeGroupData(4, 9, isTouched: index == touchedIndex);
+            return makeGroupData(4, provider.thusdayWalk.toDouble(), isTouched: index == touchedIndex);
           case 5:
-            return makeGroupData(5, 11.5, isTouched: index == touchedIndex);
+            return makeGroupData(5, provider.fridayWalk.toDouble(), isTouched: index == touchedIndex);
           case 6:
-            return makeGroupData(6, 6.5, isTouched: index == touchedIndex);
+            return makeGroupData(6, provider.saturdayWalk.toDouble(), isTouched: index == touchedIndex);
           default:
             return null;
         }
