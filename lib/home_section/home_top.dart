@@ -90,7 +90,7 @@ class _TopHomeState extends State<TopHome> {
                         padding: const EdgeInsets.symmetric(vertical: 30.0),
                         child: Center(
                           child: BarChart(
-                            mainData(),
+                            mainData(widget.provider),
                           ),
                         ),
                       ),
@@ -107,7 +107,7 @@ class _TopHomeState extends State<TopHome> {
     );
   }
 
-  BarChartData mainData() => BarChartData(
+  BarChartData mainData(WalkNotifier provider) => BarChartData(
       barTouchData: BarTouchData(
         touchTooltipData: BarTouchTooltipData(
           tooltipBgColor: Colors.black,
@@ -188,14 +188,14 @@ class _TopHomeState extends State<TopHome> {
       borderData: FlBorderData(
         show: false,
       ),
-      barGroups: showingGroups(),
+      barGroups: showingGroups(provider),
     );
 
 
-  List<BarChartGroupData> showingGroups() => List.generate(7, (index) {
+  List<BarChartGroupData> showingGroups(WalkNotifier provider) => List.generate(7, (index) {
     switch (index) {
           case 0:
-            return makeGroupData(0, 5, isTouched: index == touchedIndex);
+            return makeGroupData(0, provider.sundayWalk., isTouched: index == touchedIndex);
           case 1:
             return makeGroupData(1, 6.5, isTouched: index == touchedIndex);
           case 2:

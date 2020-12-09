@@ -32,6 +32,20 @@ class WalkNotifier extends ChangeNotifier{
   
 
   String _pedesError;
+
+  int _sundayBox;
+
+  int _mondayBox;
+
+  int _tuesdayBox;
+
+  int _wednesdayBox;
+
+  int _thursdayBox;
+
+  int _fridayBox;
+
+  int _saturdayBox;
   
 
   String _stepCountError;
@@ -43,10 +57,71 @@ class WalkNotifier extends ChangeNotifier{
  //List steps = [];
   //Jiffy(dateTime); 
 
+  getSundayBox() async{
+    final box = await Hive.openBox("Sunday");
+
+    this._sundayBox = box as int;
+    notifyListeners();
+  }
+
+  int get sundayWalk => _sundayBox;
+
+  getMondayBox() async{
+    final box = await Hive.openBox("Monday");
+
+    this._mondayBox = box as int;
+    notifyListeners();
+  }
+
+  int get mondayWalk => _mondayBox;
+
+  getTuesdayBox() async{
+    final box = await Hive.openBox("Tuesday");
+
+    this._tuesdayBox = box as int;
+    notifyListeners();
+  }
+
+  int get tuesdayWalk => _tuesdayBox;
+
+  getWednesdayBox() async{
+    final box = await Hive.openBox("Wednesday");
+
+    this._wednesdayBox = box as int;
+    notifyListeners();
+  }
+
+  int get wednesdayWalk => _wednesdayBox;
+
+  getThursdayBox() async{
+    final box = await Hive.openBox("Thursday");
+
+    this._thursdayBox = box as int;
+    notifyListeners();
+  }
+
+  int get thusdayWalk => _thursdayBox;
+
+  getFridayBox() async{
+    final box = await Hive.openBox("Friday");
+
+    this._fridayBox = box as int;
+    notifyListeners();
+  }
+
+  int get fridayWalk => _fridayBox;
+
+  getSaturdayBox() async{
+    final box = await Hive.openBox("Saturday");
+
+    this._saturdayBox = box as int;
+    notifyListeners();
+  }
+
+  int get saturdayWalk => _saturdayBox;
+
   void onStepCount(event) {
     print(event.steps);
-    this._walk = event.steps;
-     notifyListeners();
     //print(_walk);
     //DateTime timeStamp = event.timeStamp;
     if (Jiffy().day == 0) {
@@ -64,10 +139,12 @@ class WalkNotifier extends ChangeNotifier{
     } else if (Jiffy().day == 6) {
       stepsBox.put(days[6], event.steps);
     }
-    
+
+    //this._walk = stepsBox.get(Jiffy().day);
+    this._walk = event.steps;
     
     //Jiffy().day;
-   
+    notifyListeners();
    
   }
 
