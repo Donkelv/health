@@ -18,9 +18,16 @@ class TopHome extends StatefulWidget {
 
 class _TopHomeState extends State<TopHome> {
   @override
-  void initState() { 
+  void initState() async {
     super.initState();
     widget.provider.initPlatformState();
+    widget.provider.getSundayBox();
+    widget.provider.getSaturdayBox();
+    widget.provider.getMondayBox();
+    widget.provider.getFridayBox();
+    widget.provider.getTuesdayBox();
+    widget.provider.getWednesdayBox();
+    widget.provider.getThursdayBox();
   }
 
   List<Color> gradientColors = [
@@ -195,19 +202,19 @@ class _TopHomeState extends State<TopHome> {
   List<BarChartGroupData> showingGroups(WalkNotifier provider) => List.generate(7, (index) {
     switch (index) {
           case 0:
-            return makeGroupData(0, provider.sundayWalk.toDouble(), isTouched: index == touchedIndex);
+            return makeGroupData(0, provider.sundayWalk == null ? 0.0 : provider.sundayWalk.toDouble(), isTouched: index == touchedIndex);
           case 1:
-            return makeGroupData(1, provider.mondayWalk.toDouble(), isTouched: index == touchedIndex);
+            return makeGroupData(1, provider.mondayWalk == null ? 0.0 : provider.mondayWalk.toDouble(), isTouched: index == touchedIndex);
           case 2:
-            return makeGroupData(2, provider.tuesdayWalk.toDouble(), isTouched: index == touchedIndex);
+            return makeGroupData(2, provider.tuesdayWalk == null ? 0.0 : provider.tuesdayWalk.toDouble(), isTouched: index == touchedIndex);
           case 3:
-            return makeGroupData(3, provider.wednesdayWalk.toDouble(), isTouched: index == touchedIndex);
+            return makeGroupData(3, provider.wednesdayWalk == null ? 0.0 : provider.wednesdayWalk.toDouble(), isTouched: index == touchedIndex);
           case 4:
-            return makeGroupData(4, provider.thusdayWalk.toDouble(), isTouched: index == touchedIndex);
+            return makeGroupData(4, provider.thusdayWalk == null ? 0.0 : provider.thusdayWalk.toDouble(), isTouched: index == touchedIndex);
           case 5:
-            return makeGroupData(5, provider.fridayWalk.toDouble(), isTouched: index == touchedIndex);
+            return makeGroupData(5, provider.fridayWalk == null ? 0.0 : provider.fridayWalk.toDouble(), isTouched: index == touchedIndex);
           case 6:
-            return makeGroupData(6, provider.saturdayWalk.toDouble(), isTouched: index == touchedIndex);
+            return makeGroupData(6, provider.saturdayWalk == null ? 0.0 : provider.saturdayWalk.toDouble(), isTouched: index == touchedIndex);
           default:
             return null;
         }

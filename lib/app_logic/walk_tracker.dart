@@ -33,19 +33,19 @@ class WalkNotifier extends ChangeNotifier{
 
   String _pedesError;
 
-  int _sundayBox;
+  dynamic _sundayBox;
 
-  int _mondayBox;
+  dynamic _mondayBox;
 
-  int _tuesdayBox;
+  dynamic _tuesdayBox;
 
-  int _wednesdayBox;
+  dynamic _wednesdayBox;
 
-  int _thursdayBox;
+  dynamic _thursdayBox;
 
-  int _fridayBox;
+  dynamic _fridayBox;
 
-  int _saturdayBox;
+  dynamic _saturdayBox;
   
 
   String _stepCountError;
@@ -60,7 +60,7 @@ class WalkNotifier extends ChangeNotifier{
   getSundayBox() async{
     final box = await Hive.openBox("Sunday");
 
-    this._sundayBox = box as int;
+    this._sundayBox = box;
     notifyListeners();
   }
 
@@ -69,7 +69,7 @@ class WalkNotifier extends ChangeNotifier{
   getMondayBox() async{
     final box = await Hive.openBox("Monday");
 
-    this._mondayBox = box as int;
+    this._mondayBox = box;
     notifyListeners();
   }
 
@@ -78,7 +78,7 @@ class WalkNotifier extends ChangeNotifier{
   getTuesdayBox() async{
     final box = await Hive.openBox("Tuesday");
 
-    this._tuesdayBox = box as int;
+    this._tuesdayBox = box;
     notifyListeners();
   }
 
@@ -87,7 +87,7 @@ class WalkNotifier extends ChangeNotifier{
   getWednesdayBox() async{
     final box = await Hive.openBox("Wednesday");
 
-    this._wednesdayBox = box as int;
+    this._wednesdayBox = box;
     notifyListeners();
   }
 
@@ -96,7 +96,7 @@ class WalkNotifier extends ChangeNotifier{
   getThursdayBox() async{
     final box = await Hive.openBox("Thursday");
 
-    this._thursdayBox = box as int;
+    this._thursdayBox = box;
     notifyListeners();
   }
 
@@ -105,7 +105,7 @@ class WalkNotifier extends ChangeNotifier{
   getFridayBox() async{
     final box = await Hive.openBox("Friday");
 
-    this._fridayBox = box as int;
+    this._fridayBox = box;
     notifyListeners();
   }
 
@@ -114,7 +114,7 @@ class WalkNotifier extends ChangeNotifier{
   getSaturdayBox() async{
     final box = await Hive.openBox("Saturday");
 
-    this._saturdayBox = box as int;
+    this._saturdayBox = box;
     notifyListeners();
   }
 
@@ -122,33 +122,64 @@ class WalkNotifier extends ChangeNotifier{
 
   void onStepCount(event) {
     print(event.steps);
+    print(Jiffy().day);
+    print(days[0]);
     //print(_walk);
     //DateTime timeStamp = event.timeStamp;
     if (Jiffy().day == 0) {
       stepsBox.put(days[0], event.steps );
-      this._walk = sundayWalk;
+      if (sundayWalk == null) {
+        this._walk = 0;
+      } else{
+        this._walk = sundayWalk;
+      }
+      
     } else if (Jiffy().day == 1) {
       stepsBox.put(days[1], event.steps);
-      this._walk = mondayWalk;
+      if (mondayWalk == null) {
+        this._walk = 0;
+      } else{
+        this._walk = mondayWalk;
+      }
     } else if (Jiffy().day == 2){
       stepsBox.put(days[2], event.steps);
-      this._walk = tuesdayWalk;
+      if (tuesdayWalk == null) {
+        this._walk = 0;
+      } else{
+        this._walk = tuesdayWalk;
+      }
     } else if (Jiffy().day == 3){
       stepsBox.put(days[3], event.steps);
-      this._walk = wednesdayWalk;
+      if (wednesdayWalk == null) {
+        this._walk = 0;
+      } else{
+        this._walk = wednesdayWalk;
+      }
     } else if (Jiffy().day == 4){
       stepsBox.put(days[4], event.steps);
-      this._walk = fridayWalk;
+      if (thusdayWalk == null) {
+        this._walk = 0;
+      } else{
+        this._walk = thusdayWalk;
+      }
     } else if (Jiffy().day == 5) {
       stepsBox.put(days[5], event.steps);
-      this._walk = saturdayWalk;
+      if (fridayWalk == null) {
+        this._walk = 0;
+      } else{
+        this._walk = fridayWalk;
+      }
     } else if (Jiffy().day == 6) {
       stepsBox.put(days[6], event.steps);
-      this._walk = sundayWalk;
+      if (saturdayWalk == null) {
+        this._walk = 0;
+      } else{
+        this._walk = saturdayWalk;
+      }
     }
 
     //this._walk = stepsBox.get(Jiffy().day);
-    this._walk = event.steps;
+    //this._walk = event.steps;
     
     //Jiffy().day;
     notifyListeners();
