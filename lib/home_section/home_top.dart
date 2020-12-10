@@ -18,7 +18,7 @@ class TopHome extends StatefulWidget {
 
 class _TopHomeState extends State<TopHome> {
   @override
-  void initState() async {
+  void initState()  {
     super.initState();
     widget.provider.initPlatformState();
     widget.provider.getSundayBox();
@@ -28,6 +28,7 @@ class _TopHomeState extends State<TopHome> {
     widget.provider.getTuesdayBox();
     widget.provider.getWednesdayBox();
     widget.provider.getThursdayBox();
+    
   }
 
   List<Color> gradientColors = [

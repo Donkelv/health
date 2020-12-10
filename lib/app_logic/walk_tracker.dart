@@ -53,14 +53,14 @@ class WalkNotifier extends ChangeNotifier{
   List days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   
  //var dateTime = DateTime.now();
-  Box<int> stepsBox = Hive.box('steps');
+  Box<dynamic> stepsBox = Hive.box('steps');
  //List steps = [];
   //Jiffy(dateTime); 
 
   getSundayBox() async{
     final box = await Hive.openBox("Sunday");
 
-    this._sundayBox = box;
+    this._sundayBox = box.values;
     notifyListeners();
   }
 
@@ -69,7 +69,7 @@ class WalkNotifier extends ChangeNotifier{
   getMondayBox() async{
     final box = await Hive.openBox("Monday");
 
-    this._mondayBox = box;
+    this._mondayBox = box.values;
     notifyListeners();
   }
 
@@ -78,7 +78,7 @@ class WalkNotifier extends ChangeNotifier{
   getTuesdayBox() async{
     final box = await Hive.openBox("Tuesday");
 
-    this._tuesdayBox = box;
+    this._tuesdayBox = box.values;
     notifyListeners();
   }
 
@@ -87,7 +87,7 @@ class WalkNotifier extends ChangeNotifier{
   getWednesdayBox() async{
     final box = await Hive.openBox("Wednesday");
 
-    this._wednesdayBox = box;
+    this._wednesdayBox = box.values;
     notifyListeners();
   }
 
@@ -96,7 +96,7 @@ class WalkNotifier extends ChangeNotifier{
   getThursdayBox() async{
     final box = await Hive.openBox("Thursday");
 
-    this._thursdayBox = box;
+    this._thursdayBox = box.values;
     notifyListeners();
   }
 
@@ -105,7 +105,7 @@ class WalkNotifier extends ChangeNotifier{
   getFridayBox() async{
     final box = await Hive.openBox("Friday");
 
-    this._fridayBox = box;
+    this._fridayBox = box.values;
     notifyListeners();
   }
 
@@ -114,7 +114,7 @@ class WalkNotifier extends ChangeNotifier{
   getSaturdayBox() async{
     final box = await Hive.openBox("Saturday");
 
-    this._saturdayBox = box;
+    this._saturdayBox = box.values;
     notifyListeners();
   }
 
@@ -124,7 +124,7 @@ class WalkNotifier extends ChangeNotifier{
     print(event.steps);
     print(Jiffy().day);
     print(days[0]);
-    //print(_walk);
+    //pint(_walk);
     //DateTime timeStamp = event.timeStamp;
     if (Jiffy().day == 0) {
       stepsBox.put(days[0], event.steps );
@@ -228,10 +228,6 @@ class WalkNotifier extends ChangeNotifier{
 
   
 
-  void save(){
-
-   
-  }
 
 }
 
