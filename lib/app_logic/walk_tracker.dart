@@ -33,19 +33,19 @@ class WalkNotifier extends ChangeNotifier{
 
   String _pedesError;
 
-  dynamic _sundayBox;
+  int _sundayBox;
 
-  dynamic _mondayBox;
+  int _mondayBox;
 
-  dynamic _tuesdayBox;
+  int _tuesdayBox;
 
-  dynamic _wednesdayBox;
+  int _wednesdayBox;
 
-  dynamic _thursdayBox;
+  int _thursdayBox;
 
-  dynamic _fridayBox;
+  int _fridayBox;
 
-  dynamic _saturdayBox;
+  int _saturdayBox;
   
 
   String _stepCountError;
@@ -60,7 +60,7 @@ class WalkNotifier extends ChangeNotifier{
   getSundayBox() async{
     final box = await Hive.openBox("Sunday");
 
-    this._sundayBox = box.values;
+    this._sundayBox = box.values as int;
     notifyListeners();
   }
 
@@ -69,7 +69,7 @@ class WalkNotifier extends ChangeNotifier{
   getMondayBox() async{
     final box = await Hive.openBox("Monday");
 
-    this._mondayBox = box.values;
+    this._mondayBox = box.values as int;
     notifyListeners();
   }
 
@@ -78,7 +78,7 @@ class WalkNotifier extends ChangeNotifier{
   getTuesdayBox() async{
     final box = await Hive.openBox("Tuesday");
 
-    this._tuesdayBox = box.values;
+    this._tuesdayBox = box.values as int;
     notifyListeners();
   }
 
@@ -87,7 +87,7 @@ class WalkNotifier extends ChangeNotifier{
   getWednesdayBox() async{
     final box = await Hive.openBox("Wednesday");
 
-    this._wednesdayBox = box.values;
+    this._wednesdayBox = box.values as int;
     notifyListeners();
   }
 
@@ -96,7 +96,8 @@ class WalkNotifier extends ChangeNotifier{
   getThursdayBox() async{
     final box = await Hive.openBox("Thursday");
 
-    this._thursdayBox = box.values;
+    this._thursdayBox = box.values as int;
+    print("this is ${this._thursdayBox}");
     notifyListeners();
   }
 
@@ -105,7 +106,7 @@ class WalkNotifier extends ChangeNotifier{
   getFridayBox() async{
     final box = await Hive.openBox("Friday");
 
-    this._fridayBox = box.values;
+    this._fridayBox = box.values as int;
     notifyListeners();
   }
 
@@ -114,7 +115,7 @@ class WalkNotifier extends ChangeNotifier{
   getSaturdayBox() async{
     final box = await Hive.openBox("Saturday");
 
-    this._saturdayBox = box.values;
+    this._saturdayBox = box.values as int;
     notifyListeners();
   }
 
