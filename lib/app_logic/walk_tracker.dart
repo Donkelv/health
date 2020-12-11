@@ -11,8 +11,8 @@ import 'package:hive/hive.dart';
    return WalkNotifier();
  }); 
 
- Pedometer _pedometer;
- StreamSubscription<int> _subscription;
+/*  Pedometer _pedometer;
+StreamSubscription<int> _subscription; */
 
  Stream<StepCount> _stepCountStream;
  Stream<PedestrianStatus> _pedestrianStatusStream;
@@ -32,7 +32,7 @@ class WalkNotifier extends ChangeNotifier{
   
 
   String _pedesError;
-
+ 
   int _sundayBox;
 
   int _mondayBox;
@@ -47,21 +47,19 @@ class WalkNotifier extends ChangeNotifier{
 
   int _saturdayBox;
   
-
   String _stepCountError;
 
   List days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   
  //var dateTime = DateTime.now();
-  Box<dynamic> stepsBox = Hive.box('steps');
+  Box<int> stepsBox = Hive.box('steps');
  //List steps = [];
   //Jiffy(dateTime); 
 
   getSundayBox() async{
     final box = await Hive.openBox("Sunday");
 
-    this._sundayBox = box.values as int;
-    notifyListeners();
+    this._sundayBox = box.values as int;    notifyListeners();
   }
 
   int get sundayWalk => _sundayBox;
@@ -164,6 +162,7 @@ class WalkNotifier extends ChangeNotifier{
         this._walk = thusdayWalk;
       }
     } else if (Jiffy().day == 6) {
+      print (event.steps);
       stepsBox.put(days[5], event.steps);
       if (fridayWalk == null) {
         this._walk = 0;
