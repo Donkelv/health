@@ -1,11 +1,11 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:health/app_logic/walk_tracker.dart';
+//import 'package:flutter_riverpod/flutter_riverpod.dart';
+//import 'package:health/app_logic/walk_tracker.dart';
 import 'package:health/home.dart';
-import 'package:pedometer/pedometer.dart';
-import 'dart:async';
+//import 'package:pedometer/pedometer.dart';
+//import 'dart:async';
 
 class AuthRoute extends StatefulWidget {
   @override
@@ -16,7 +16,7 @@ class _AuthRouteState extends State<AuthRoute> {
  
   String backImage = "assets/background.png";
   
-  WalkNotifier walkNotifier = WalkNotifier();
+  //WalkNotifier walkNotifier = WalkNotifier();
 
   double _sigmaX = 3.0;
   double _sigmaY = 3.0;

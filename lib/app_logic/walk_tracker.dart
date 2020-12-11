@@ -123,8 +123,8 @@ class WalkNotifier extends ChangeNotifier{
 
   void onStepCount(event) {
     print(event.steps);
-    print(Jiffy().day);
-    print(days[0]);
+    //print(Jiffy().day);
+    //print(days[0]);
     //pint(_walk);
     //DateTime timeStamp = event.timeStamp;
     if (Jiffy().day == 1) {
@@ -150,6 +150,7 @@ class WalkNotifier extends ChangeNotifier{
         this._walk = tuesdayWalk;
       }
     } else if (Jiffy().day == 4){
+      
       stepsBox.put(days[3], event.steps);
       if (wednesdayWalk == null) {
         this._walk = 0;
