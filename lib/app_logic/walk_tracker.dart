@@ -57,44 +57,46 @@ class WalkNotifier extends ChangeNotifier{
   //Jiffy(dateTime); 
 
   getSundayBox() async{
-    final box = await Hive.openBox("Sunday");
+    //final box = await Hive.openBox("Sunday");
+    this._sundayBox = stepsBox.get("Sunday");
 
-    this._sundayBox = box.values as int;    notifyListeners();
+    //this._sundayBox = box.values as int;    
+    notifyListeners();
   }
 
   int get sundayWalk => _sundayBox;
 
   getMondayBox() async{
-    final box = await Hive.openBox("Monday");
+    //final box = await Hive.openBox("Monday");
 
-    this._mondayBox = box.values as int;
+    this._mondayBox = stepsBox.get("Monday");
     notifyListeners();
   }
 
   int get mondayWalk => _mondayBox;
 
   getTuesdayBox() async{
-    final box = await Hive.openBox("Tuesday");
+    //final box = await Hive.openBox("Tuesday");
 
-    this._tuesdayBox = box.values as int;
+    this._tuesdayBox = stepsBox.get("Tuesday");
     notifyListeners();
   }
 
   int get tuesdayWalk => _tuesdayBox;
 
   getWednesdayBox() async{
-    final box = await Hive.openBox("Wednesday");
+    //final box = await Hive.openBox("Wednesday");
 
-    this._wednesdayBox = box.values as int;
+    this._wednesdayBox = stepsBox.get("Wednesday");//box.values as int;
     notifyListeners();
   }
 
   int get wednesdayWalk => _wednesdayBox;
 
   getThursdayBox() async{
-    final box = await Hive.openBox("Thursday");
+    //final box = await Hive.openBox("Thursday");
 
-    this._thursdayBox = box.values as int;
+    this._thursdayBox = stepsBox.get("Thursday");//box.values as int;
     print("this is ${this._thursdayBox}");
     notifyListeners();
   }
@@ -102,18 +104,18 @@ class WalkNotifier extends ChangeNotifier{
   int get thusdayWalk => _thursdayBox;
 
   getFridayBox() async{
-    final box = await Hive.openBox("Friday");
+    //final box = await Hive.openBox("Friday");
 
-    this._fridayBox = box.values as int;
+    this._fridayBox = stepsBox.get("Friday");//box.values as int;
     notifyListeners();
   }
 
   int get fridayWalk => _fridayBox;
 
   getSaturdayBox() async{
-    final box = await Hive.openBox("Saturday");
+    //final box = await Hive.openBox("Saturday");
 
-    this._saturdayBox = box.values as int;
+    this._saturdayBox = stepsBox.get("Saturday");
     notifyListeners();
   }
 
@@ -163,13 +165,16 @@ class WalkNotifier extends ChangeNotifier{
       }
     } else if (Jiffy().day == 6) {
       print (event.steps);
+      
       stepsBox.put(days[5], event.steps);
+      
       if (fridayWalk == null) {
         this._walk = 0;
       } else{
         this._walk = fridayWalk;
       }
     } else if (Jiffy().day == 7) {
+       print (event.steps);
       stepsBox.put(days[6], event.steps);
       if (saturdayWalk == null) {
         this._walk = 0;
