@@ -127,7 +127,7 @@ class WalkNotifier extends ChangeNotifier{
     print(days[0]);
     //pint(_walk);
     //DateTime timeStamp = event.timeStamp;
-    if (Jiffy().day == 0) {
+    if (Jiffy().day == 1) {
       stepsBox.put(days[0], event.steps );
       if (sundayWalk == null) {
         this._walk = 0;
@@ -135,42 +135,42 @@ class WalkNotifier extends ChangeNotifier{
         this._walk = sundayWalk;
       }
       
-    } else if (Jiffy().day == 1) {
+    } else if (Jiffy().day == 2) {
       stepsBox.put(days[1], event.steps);
       if (mondayWalk == null) {
         this._walk = 0;
       } else{
         this._walk = mondayWalk;
       }
-    } else if (Jiffy().day == 2){
+    } else if (Jiffy().day == 3){
       stepsBox.put(days[2], event.steps);
       if (tuesdayWalk == null) {
         this._walk = 0;
       } else{
         this._walk = tuesdayWalk;
       }
-    } else if (Jiffy().day == 3){
+    } else if (Jiffy().day == 4){
       stepsBox.put(days[3], event.steps);
       if (wednesdayWalk == null) {
         this._walk = 0;
       } else{
         this._walk = wednesdayWalk;
       }
-    } else if (Jiffy().day == 4){
+    } else if (Jiffy().day == 5){
       stepsBox.put(days[4], event.steps);
       if (thusdayWalk == null) {
         this._walk = 0;
       } else{
         this._walk = thusdayWalk;
       }
-    } else if (Jiffy().day == 5) {
+    } else if (Jiffy().day == 6) {
       stepsBox.put(days[5], event.steps);
       if (fridayWalk == null) {
         this._walk = 0;
       } else{
         this._walk = fridayWalk;
       }
-    } else if (Jiffy().day == 6) {
+    } else if (Jiffy().day == 7) {
       stepsBox.put(days[6], event.steps);
       if (saturdayWalk == null) {
         this._walk = 0;
