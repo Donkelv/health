@@ -60,7 +60,7 @@ class WalkNotifier extends ChangeNotifier{
   getSundayBox() async{
     //final box = await Hive.openBox("Sunday");
     this._sundayBox = stepsBox.get("Sunday");
-
+    print("Steps from the box ${stepsBox.get('Sunday')}");
     //this._sundayBox = box.values as int;    
     notifyListeners();
   }
@@ -123,7 +123,7 @@ class WalkNotifier extends ChangeNotifier{
   int get saturdayWalk => _saturdayBox;
 
   void onStepCount(event) {
-    print(event.steps);
+    //print(event.steps);
     //print(Jiffy().day);
     //print(days[0]);
     //pint(_walk);
@@ -184,6 +184,7 @@ class WalkNotifier extends ChangeNotifier{
         this._walk = saturdayWalk;
       }
     }
+    print("this is the $_walk");
 
     //this._walk = stepsBox.get(Jiffy().day);
     //this._walk = event.steps;
@@ -220,7 +221,9 @@ class WalkNotifier extends ChangeNotifier{
   } 
   String get stepCountError => _stepCountError;
 
-  void done() {}
+  void done() {
+    print("just for commits");
+  }
   
  
  
