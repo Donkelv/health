@@ -6,6 +6,8 @@ import 'app_logic/walk_tracker.dart';
 
 
 class Home extends ConsumerWidget {
+
+  
   
 
   @override

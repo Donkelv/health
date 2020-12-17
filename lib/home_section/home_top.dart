@@ -19,23 +19,26 @@ class TopHome extends StatefulWidget {
 class _TopHomeState extends State<TopHome> {
   @override
   void initState()  {
+    Future.delayed(Duration.zero, (){
+      widget.provider.initPlatformState();
+      widget.provider.getSundayBox();
+      widget.provider.getSaturdayBox();
+      widget.provider.getMondayBox();
+      widget.provider.getFridayBox();
+      widget.provider.getTuesdayBox();
+      widget.provider.getWednesdayBox();
+      widget.provider.getThursdayBox();
+    });
     super.initState();
-    widget.provider.initPlatformState();
-    widget.provider.getSundayBox();
-    widget.provider.getSaturdayBox();
-    widget.provider.getMondayBox();
-    widget.provider.getFridayBox();
-    widget.provider.getTuesdayBox();
-    widget.provider.getWednesdayBox();
-    widget.provider.getThursdayBox();
+    
     
   }
 
-  @override
+ /*  @override
   void dispose() { 
     widget.provider.initPlatformState();
     super.dispose();
-  }
+  } */
 
   List<Color> gradientColors = [
     const Color(0xff23b6e6),
