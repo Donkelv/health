@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:health/app_logic/walk_tracker.dart';
 
 class Heart extends StatelessWidget {
   const Heart({
     Key key,
     @required this.size,
+    @required this.provider,
   }) : super(key: key);
 
   final Size size;
+  final WalkNotifier provider;
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +52,7 @@ class Heart extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Text(
-                              "90  ",
+                              "0.0  ",
                               style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 20.0,

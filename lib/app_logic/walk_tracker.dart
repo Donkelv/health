@@ -4,6 +4,7 @@ import 'package:pedometer/pedometer.dart';
 import 'dart:async';
 import 'package:jiffy/jiffy.dart';
 import 'package:hive/hive.dart';
+import 'package:flutter_android/android_hardware.dart';
 
 final walkProvider = ChangeNotifierProvider((ref) {
   return WalkNotifier();
@@ -20,6 +21,8 @@ Stream<PedestrianStatus> _pedestrianStatusStream;
 class WalkNotifier extends ChangeNotifier {
   /* WalkNotifier([this._walk = 0]); */
   int _walk;
+
+  double _heartRate;
 
   dynamic _status;
 
@@ -53,6 +56,19 @@ class WalkNotifier extends ChangeNotifier {
 
   //var dateTime = DateTime.now();
   Box<int> stepsBox = Hive.box('steps');
+
+  void heartMonitor() async {
+    var sensor = await SensorManager.getDefaultSensor(Sensor.TYPE_HEART_RATE);
+    var sensorSubscribe = await sensor.subscribe();
+
+    sensorSubscribe.listen((SensorEvent event) {
+      this._heartRate = event.values[0];
+      notifyListeners();
+      print(event.values[0]);
+    });
+  }
+
+  double get heartRate => _heartRate;
   //List steps = [];
   //Jiffy(dateTime);
 

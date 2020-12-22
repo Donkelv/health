@@ -20,6 +20,7 @@ class Home extends ConsumerWidget {
     walk.getThursdayBox();
     walk.getFridayBox();
     walk.getSaturdayBox();
+    //walk.heartMonitor();
     //print(walk.walk.toString());
     return SingleChildScrollView(
       physics: BouncingScrollPhysics(),
@@ -28,7 +29,7 @@ class Home extends ConsumerWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           TopHome(provider: walk),
-          Heart(size: size),
+          Heart(size: size, provider: walk),
           SizedBox(height: 20.0),
           Sleep(size: size),
           SizedBox(
