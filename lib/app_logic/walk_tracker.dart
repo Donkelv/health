@@ -129,6 +129,9 @@ class WalkNotifier extends ChangeNotifier{
     //pint(_walk);
     //DateTime timeStamp = event.timeStamp;
     if (Jiffy().day == 1) {
+      if(Jiffy().utc() == Jiffy().endOf(Units.DAY)){
+        cancel();
+      }
       stepsBox.put(days[0], event.steps );
       stepsBox.put(days[1], 0);
       stepsBox.put(days[2], 0);
@@ -145,6 +148,9 @@ class WalkNotifier extends ChangeNotifier{
       }
       
     } else if (Jiffy().day == 2) {
+      if(Jiffy().utc() == Jiffy().endOf(Units.DAY)){
+        cancel();
+      }
       stepsBox.put(days[1], event.steps);
       stepsBox.put(days[2], 0);
       stepsBox.put(days[3], 0);
@@ -159,6 +165,9 @@ class WalkNotifier extends ChangeNotifier{
         notifyListeners();
       }
     } else if (Jiffy().day == 3){
+      if(Jiffy().utc() == Jiffy().endOf(Units.DAY)){
+        cancel();
+      }
       stepsBox.put(days[2], event.steps);
       stepsBox.put(days[3], 0);
       stepsBox.put(days[4], 0);
@@ -173,7 +182,9 @@ class WalkNotifier extends ChangeNotifier{
         notifyListeners();
       }
     } else if (Jiffy().day == 4){
-      
+      if(Jiffy().utc() == Jiffy().endOf(Units.DAY)){
+        cancel();
+      }
       stepsBox.put(days[3], event.steps);
       stepsBox.put(days[4], 0);
       stepsBox.put(days[5], 0);
@@ -186,6 +197,9 @@ class WalkNotifier extends ChangeNotifier{
         notifyListeners();
       }
     } else if (Jiffy().day == 5){
+      if(Jiffy().utc() == Jiffy().endOf(Units.DAY)){
+        cancel();
+      }
       stepsBox.put(days[4], event.steps);
       stepsBox.put(days[5], 0);
       stepsBox.put(days[6], 0);
@@ -193,11 +207,15 @@ class WalkNotifier extends ChangeNotifier{
         this._walk = 0;
         notifyListeners();
       } else{
+        
         this._walk = thusdayWalk;
          //print("walk: ${this._walk}");
         notifyListeners();
       }
     } else if (Jiffy().day == 6) {
+      if(Jiffy().utc() == Jiffy().endOf(Units.DAY)){
+        cancel();
+      }
       print (event.steps);
       
       stepsBox.put(days[5], event.steps);
@@ -211,6 +229,9 @@ class WalkNotifier extends ChangeNotifier{
         notifyListeners();
       }
     } else if (Jiffy().day == 7) {
+      if(Jiffy().utc() == Jiffy().endOf(Units.DAY)){
+        cancel();
+      }
        print (event.steps);
       stepsBox.put(days[6], event.steps);
       if (saturdayWalk == null) {
@@ -278,7 +299,9 @@ class WalkNotifier extends ChangeNotifier{
   
   }
 
-  
+  void cancel(){
+    _stepCountStream.listen(onStepCount).cancel();
+  }
 
 
 }
