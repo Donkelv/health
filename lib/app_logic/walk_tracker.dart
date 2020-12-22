@@ -60,7 +60,7 @@ class WalkNotifier extends ChangeNotifier{
   getSundayBox() async{
     //final box = await Hive.openBox("Sunday");
     this._sundayBox = stepsBox.get("Sunday");
-    print("Steps from the box ${stepsBox.get('Sunday')}");
+   // print("Steps from the box ${stepsBox.get('Sunday')}");
     //this._sundayBox = box.values as int;    
     notifyListeners();
   }
@@ -98,7 +98,7 @@ class WalkNotifier extends ChangeNotifier{
     //final box = await Hive.openBox("Thursday");
 
     this._thursdayBox = stepsBox.get("Thursday");//box.values as int;
-    print("this is ${this._thursdayBox}");
+    //print("this is ${this._thursdayBox}");
     notifyListeners();
   }
 
@@ -194,7 +194,7 @@ class WalkNotifier extends ChangeNotifier{
         notifyListeners();
       } else{
         this._walk = thusdayWalk;
-         print("walk: ${this._walk}");
+         //print("walk: ${this._walk}");
         notifyListeners();
       }
     } else if (Jiffy().day == 6) {

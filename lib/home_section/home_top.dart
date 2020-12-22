@@ -18,7 +18,7 @@ class TopHome extends StatefulWidget {
 
 class _TopHomeState extends State<TopHome> {
   @override
-  void initState()  {
+  /* void initState()  {
     Future.delayed(Duration.zero, (){
       widget.provider.initPlatformState();
       widget.provider.getSundayBox();
@@ -32,7 +32,7 @@ class _TopHomeState extends State<TopHome> {
     super.initState();
     
     
-  }
+  } */
 
  /*  @override
   void dispose() { 

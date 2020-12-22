@@ -11,9 +11,17 @@ class Home extends ConsumerWidget {
   
 
   @override
-  Widget build(BuildContext context, ScopedReader scopedReader) {
-    final walk = scopedReader(walkProvider);
-    print(walk.walk.toString());
+  Widget build(BuildContext context, ScopedReader watch) {
+    final walk = watch(walkProvider);
+    walk.initPlatformState();
+    walk.getSundayBox();
+    walk.getMondayBox();
+    walk.getTuesdayBox();
+    walk.getWednesdayBox();
+    walk.getThursdayBox();
+    walk.getFridayBox();
+    walk.getSaturdayBox();
+    //print(walk.walk.toString());
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
