@@ -16,10 +16,9 @@ class Heart extends StatefulWidget {
   _HeartState createState() => _HeartState();
 }
 
-
 class _HeartState extends State<Heart> {
   @override
-  void dispose() { 
+  void dispose() {
     widget.provider.dispose();
     widget.provider.removeListener(() {
       widget.provider.getFridayBox();
@@ -35,6 +34,7 @@ class _HeartState extends State<Heart> {
     widget.provider.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -47,7 +47,8 @@ class _HeartState extends State<Heart> {
           color: Colors.transparent,
           width: widget.size.width,
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
+            padding:
+                const EdgeInsets.symmetric(vertical: 5.0, horizontal: 20.0),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.start,

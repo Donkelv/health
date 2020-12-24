@@ -22,8 +22,7 @@ class Home extends ConsumerWidget {
       walk.getFridayBox();
       walk.getSaturdayBox();
     });
-    
-    
+
     //walk.heartMonitor();
     //print(walk.walk.toString());
     return SingleChildScrollView(

@@ -37,9 +37,8 @@ class _TopHomeState extends State<TopHome> {
     super.dispose();
   } */
 
-
   @override
-  void dispose() { 
+  void dispose() {
     widget.provider.dispose();
     super.dispose();
   }

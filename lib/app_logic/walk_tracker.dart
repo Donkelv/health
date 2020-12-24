@@ -4,7 +4,8 @@ import 'package:pedometer/pedometer.dart';
 import 'dart:async';
 import 'package:jiffy/jiffy.dart';
 import 'package:hive/hive.dart';
-import 'package:flutter_android/android_hardware.dart' show Sensor, SensorEvent, SensorManager;
+import 'package:flutter_android/android_hardware.dart'
+    show Sensor, SensorEvent, SensorManager;
 
 final walkProvider = ChangeNotifierProvider((ref) {
   return WalkNotifier();
@@ -138,129 +139,179 @@ class WalkNotifier extends ChangeNotifier {
   int get saturdayWalk => _saturdayBox;
 
   void onStepCount(event) {
-    //print(event.steps);
-    //print(Jiffy().day);
-    //print(days[0]);
-    //pint(_walk);
-    //DateTime timeStamp = event.timeStamp;
     if (Jiffy().day == 1) {
-      if (Jiffy().utc() == Jiffy().endOf(Units.DAY)) {
-        cancel();
-      }
-      stepsBox.put(days[0], event.steps);
-      stepsBox.put(days[1], 0);
-      stepsBox.put(days[2], 0);
-      stepsBox.put(days[3], 0);
-      stepsBox.put(days[4], 0);
-      stepsBox.put(days[5], 0);
-      stepsBox.put(days[6], 0);
-      if (sundayWalk == null) {
-        this._walk = 0;
-        notifyListeners();
-      } else {
+      if (event.steps != 0) {
+        int todaySteps = event.steps - saturdayWalk;
+        stepsBox.put(days[0], todaySteps);
+        stepsBox.put(days[1], 0);
+        stepsBox.put(days[2], 0);
+        stepsBox.put(days[3], 0);
+        stepsBox.put(days[4], 0);
+        stepsBox.put(days[5], 0);
+        stepsBox.put(days[6], 0);
+
         this._walk = sundayWalk;
         notifyListeners();
+      } else {
+        stepsBox.put(days[0], event.steps);
+        stepsBox.put(days[1], 0);
+        stepsBox.put(days[2], 0);
+        stepsBox.put(days[3], 0);
+        stepsBox.put(days[4], 0);
+        stepsBox.put(days[5], 0);
+        stepsBox.put(days[6], 0);
+        if (sundayWalk == null) {
+          this._walk = 0;
+          notifyListeners();
+        } else {
+          this._walk = sundayWalk;
+          notifyListeners();
+        }
       }
     } else if (Jiffy().day == 2) {
-      if (Jiffy().utc() == Jiffy().endOf(Units.DAY)) {
-        cancel();
-      }
-      stepsBox.put(days[1], event.steps);
-      stepsBox.put(days[2], 0);
-      stepsBox.put(days[3], 0);
-      stepsBox.put(days[4], 0);
-      stepsBox.put(days[5], 0);
-      stepsBox.put(days[6], 0);
-      if (mondayWalk == null) {
-        this._walk = 0;
-        notifyListeners();
-      } else {
+      if (event.steps != 0) {
+        int todaysSteps = event.steps - sundayWalk;
+        stepsBox.put(days[1], todaysSteps);
+        stepsBox.put(days[2], 0);
+        stepsBox.put(days[3], 0);
+        stepsBox.put(days[4], 0);
+        stepsBox.put(days[5], 0);
+        stepsBox.put(days[6], 0);
+
         this._walk = mondayWalk;
         notifyListeners();
+      } else {
+        stepsBox.put(days[1], event.steps);
+        stepsBox.put(days[2], 0);
+        stepsBox.put(days[3], 0);
+        stepsBox.put(days[4], 0);
+        stepsBox.put(days[5], 0);
+        stepsBox.put(days[6], 0);
+        if (mondayWalk == null) {
+          this._walk = 0;
+          notifyListeners();
+        } else {
+          this._walk = mondayWalk;
+          notifyListeners();
+        }
       }
     } else if (Jiffy().day == 3) {
-      if (Jiffy().utc() == Jiffy().endOf(Units.DAY)) {
-        cancel();
-      }
-      stepsBox.put(days[2], event.steps);
-      stepsBox.put(days[3], 0);
-      stepsBox.put(days[4], 0);
-      stepsBox.put(days[5], 0);
-      stepsBox.put(days[6], 0);
-      if (tuesdayWalk == null) {
-        this._walk = 0;
-        notifyListeners();
-      } else {
+      if (event.steps != 0) {
+        int todaysSteps = event.steps - mondayWalk;
+        stepsBox.put(days[2], todaysSteps);
+        stepsBox.put(days[3], 0);
+        stepsBox.put(days[4], 0);
+        stepsBox.put(days[5], 0);
+        stepsBox.put(days[6], 0);
+
         this._walk = tuesdayWalk;
 
         notifyListeners();
+      } else {
+        stepsBox.put(days[2], event.steps);
+        stepsBox.put(days[3], 0);
+        stepsBox.put(days[4], 0);
+        stepsBox.put(days[5], 0);
+        stepsBox.put(days[6], 0);
+        if (tuesdayWalk == null) {
+          this._walk = 0;
+          notifyListeners();
+        } else {
+          this._walk = tuesdayWalk;
+
+          notifyListeners();
+        }
       }
     } else if (Jiffy().day == 4) {
-      if (Jiffy().utc() == Jiffy().endOf(Units.DAY)) {
-        cancel();
-      }
-      stepsBox.put(days[3], event.steps);
-      stepsBox.put(days[4], 0);
-      stepsBox.put(days[5], 0);
-      stepsBox.put(days[6], 0);
-      if (wednesdayWalk == null) {
-        this._walk = 0;
-        notifyListeners();
-      } else {
+      if (event.steps != 0) {
+        int todaysSteps = event.steps - tuesdayWalk;
+        stepsBox.put(days[3], todaysSteps);
+        stepsBox.put(days[4], 0);
+        stepsBox.put(days[5], 0);
+        stepsBox.put(days[6], 0);
+
         this._walk = wednesdayWalk;
         notifyListeners();
+      } else {
+        stepsBox.put(days[3], event.steps);
+        stepsBox.put(days[4], 0);
+        stepsBox.put(days[5], 0);
+        stepsBox.put(days[6], 0);
+        if (wednesdayWalk == null) {
+          this._walk = 0;
+          notifyListeners();
+        } else {
+          this._walk = wednesdayWalk;
+          notifyListeners();
+        }
       }
     } else if (Jiffy().day == 5) {
-      if (Jiffy().utc() == Jiffy().endOf(Units.DAY)) {
-        cancel();
-      }
-      stepsBox.put(days[4], event.steps);
-      stepsBox.put(days[5], 0);
-      stepsBox.put(days[6], 0);
-      if (thusdayWalk == null) {
-        this._walk = 0;
-        notifyListeners();
-      } else {
+      if (event.steps != 0) {
+        int todaysSteps = event.steps - wednesdayWalk;
+        stepsBox.put(days[4], todaysSteps);
+        stepsBox.put(days[5], 0);
+        stepsBox.put(days[6], 0);
+
         this._walk = thusdayWalk;
         //print("walk: ${this._walk}");
         notifyListeners();
+      } else {
+        stepsBox.put(days[4], event.steps);
+        stepsBox.put(days[5], 0);
+        stepsBox.put(days[6], 0);
+        if (thusdayWalk == null) {
+          this._walk = 0;
+          notifyListeners();
+        } else {
+          this._walk = thusdayWalk;
+          //print("walk: ${this._walk}");
+          notifyListeners();
+        }
       }
     } else if (Jiffy().day == 6) {
-      if (Jiffy().utc() == Jiffy().endOf(Units.DAY)) {
-        cancel();
-      }
-      print(event.steps);
+      if (event.steps != 0) {
+        int todaysSteps = event.steps - thusdayWalk;
+        print(event.steps);
 
-      stepsBox.put(days[5], event.steps);
-      stepsBox.put(days[6], 0);
+        stepsBox.put(days[5], todaysSteps);
+        stepsBox.put(days[6], 0);
 
-      if (fridayWalk == null) {
-        this._walk = 0;
-        notifyListeners();
-      } else {
         this._walk = fridayWalk;
         notifyListeners();
+      } else {
+        print(event.steps);
+
+        stepsBox.put(days[5], event.steps);
+        stepsBox.put(days[6], 0);
+
+        if (fridayWalk == null) {
+          this._walk = 0;
+          notifyListeners();
+        } else {
+          this._walk = fridayWalk;
+          notifyListeners();
+        }
       }
     } else if (Jiffy().day == 7) {
-      if (Jiffy().utc() == Jiffy().endOf(Units.DAY)) {
-        cancel();
-      }
-      print(event.steps);
-      stepsBox.put(days[6], event.steps);
-      if (saturdayWalk == null) {
-        this._walk = 0;
-        notifyListeners();
-      } else {
+      if (event.steps != 0) {
+        int todaysSteps = event.steps - fridayWalk;
+        print(event.steps);
+        stepsBox.put(days[6], todaysSteps);
+
         this._walk = saturdayWalk;
         notifyListeners();
+      } else {
+        print(event.steps);
+        stepsBox.put(days[6], event.steps);
+        if (saturdayWalk == null) {
+          this._walk = 0;
+          notifyListeners();
+        } else {
+          this._walk = saturdayWalk;
+          notifyListeners();
+        }
       }
     }
-    //print("this is the $_walk");
-
-    //this._walk = stepsBox.get(Jiffy().day);
-    //this._walk = event.steps;
-
-    //Jiffy().day;
   }
 
   int get walk => _walk;
@@ -300,11 +351,7 @@ class WalkNotifier extends ChangeNotifier {
         .listen(onPedestrianStatusChanged)
         .onError(onPedestrianStatusError);
     _stepCountStream = Pedometer.stepCountStream;
-    _stepCountStream
-        .listen(onStepCount)
-        //.onDone(done);
-
-        .onError(onStepCountError);
+    _stepCountStream.listen(onStepCount).onError(onStepCountError);
   }
 
   void cancel() {
