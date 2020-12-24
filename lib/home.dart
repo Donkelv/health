@@ -12,14 +12,18 @@ class Home extends ConsumerWidget {
   Widget build(BuildContext context, ScopedReader watch) {
     Size size = MediaQuery.of(context).size;
     final walk = watch(walkProvider);
-    walk.initPlatformState();
-    walk.getSundayBox();
-    walk.getMondayBox();
-    walk.getTuesdayBox();
-    walk.getWednesdayBox();
-    walk.getThursdayBox();
-    walk.getFridayBox();
-    walk.getSaturdayBox();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      walk.initPlatformState();
+      walk.getSundayBox();
+      walk.getMondayBox();
+      walk.getTuesdayBox();
+      walk.getWednesdayBox();
+      walk.getThursdayBox();
+      walk.getFridayBox();
+      walk.getSaturdayBox();
+    });
+    
+    
     //walk.heartMonitor();
     //print(walk.walk.toString());
     return SingleChildScrollView(

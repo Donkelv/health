@@ -4,7 +4,7 @@ import 'package:pedometer/pedometer.dart';
 import 'dart:async';
 import 'package:jiffy/jiffy.dart';
 import 'package:hive/hive.dart';
-import 'package:flutter_android/android_hardware.dart';
+import 'package:flutter_android/android_hardware.dart' show Sensor, SensorEvent, SensorManager;
 
 final walkProvider = ChangeNotifierProvider((ref) {
   return WalkNotifier();

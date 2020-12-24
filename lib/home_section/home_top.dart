@@ -37,6 +37,13 @@ class _TopHomeState extends State<TopHome> {
     super.dispose();
   } */
 
+
+  @override
+  void dispose() { 
+    widget.provider.dispose();
+    super.dispose();
+  }
+
   List<Color> gradientColors = [
     const Color(0xff23b6e6),
     const Color(0xff02d39a),
