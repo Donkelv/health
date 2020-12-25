@@ -78,7 +78,7 @@ class _HeartState extends State<Heart> {
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               Text(
-                                "${widget.provider.heartRate} ",
+                                "0.0 ",
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 20.0,

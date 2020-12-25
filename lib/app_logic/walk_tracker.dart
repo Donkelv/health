@@ -271,6 +271,7 @@ class WalkNotifier extends ChangeNotifier {
     } else if (Jiffy().day == 6) {
       if (event.steps != 0) {
         int todaysSteps = event.steps - thusdayWalk;
+        print(" today $todaysSteps");
         print(event.steps);
 
         stepsBox.put(days[5], todaysSteps);
