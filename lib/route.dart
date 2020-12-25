@@ -1,9 +1,13 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:health/app_logic/walk_tracker.dart';
+//import 'package:flutter_riverpod/flutter_riverpod.dart';
+//import 'package:health/app_logic/walk_tracker.dart';
 import 'package:health/home.dart';
-import 'package:pedometer/pedometer.dart';
-import 'dart:async';
+
+import 'app_logic/walk_tracker.dart';
+//import 'package:pedometer/pedometer.dart';
+//import 'dart:async';
 
 class AuthRoute extends StatefulWidget {
   @override
@@ -11,15 +15,13 @@ class AuthRoute extends StatefulWidget {
 }
 
 class _AuthRouteState extends State<AuthRoute> {
- 
   String backImage = "assets/background.png";
-  
+
   WalkNotifier walkNotifier = WalkNotifier();
-  
 
-
-
-  
+  double _sigmaX = 3.0;
+  double _sigmaY = 3.0;
+  double _opacity = 0.5;
 
   /* @override
   void initState() {
@@ -38,16 +40,23 @@ class _AuthRouteState extends State<AuthRoute> {
         height: size.height,
         width: size.width,
         decoration: BoxDecoration(
-            image: DecorationImage(
-          image: AssetImage(backImage),
-          fit: BoxFit.cover,
-        ),),
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 100.0),
-            child: SingleChildScrollView(
+          image: DecorationImage(
+            image: AssetImage(backImage),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Container(
+          width: size.width,
+          height: size.height,
+          color: Color(0xFFC6D2D5).withOpacity(0.1),
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: _sigmaX, sigmaY: _sigmaY),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20.0),
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                padding: const EdgeInsets.only(
+                  top: 100.0,
+                ),
                 child: Home(),
               ),
             ),

@@ -9,8 +9,7 @@ class HomeProfileSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Align(
       alignment: Alignment.center,
-      child: Column(
-        children: [
+      child: Column(children: [
         Text(
           "Profile",
           style: TextStyle(
