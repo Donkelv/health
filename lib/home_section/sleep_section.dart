@@ -81,9 +81,9 @@ class Sleep extends StatelessWidget {
                                 fontWeight: FontWeight.w200,
                               ),
                             ),
-                          ])
-                    ]),
-              )
+                          ],),
+                    ],),
+              ),
             ],
           ),
         ),

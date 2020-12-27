@@ -140,7 +140,7 @@ class WalkNotifier extends ChangeNotifier {
 
   void onStepCount(event) {
     if (Jiffy().day == 1) {
-      if (event.steps != 0) {
+      if (event.steps > 0) {
         int todaySteps = event.steps - saturdayWalk;
         stepsBox.put(days[0], todaySteps);
         stepsBox.put(days[1], 0);
@@ -169,7 +169,7 @@ class WalkNotifier extends ChangeNotifier {
         }
       }
     } else if (Jiffy().day == 2) {
-      if (event.steps != 0) {
+      if (event.steps > 0) {
         int todaysSteps = event.steps - sundayWalk;
         stepsBox.put(days[1], todaysSteps);
         stepsBox.put(days[2], 0);
@@ -196,7 +196,7 @@ class WalkNotifier extends ChangeNotifier {
         }
       }
     } else if (Jiffy().day == 3) {
-      if (event.steps != 0) {
+      if (event.steps > 0) {
         int todaysSteps = event.steps - mondayWalk;
         stepsBox.put(days[2], todaysSteps);
         stepsBox.put(days[3], 0);
@@ -223,7 +223,7 @@ class WalkNotifier extends ChangeNotifier {
         }
       }
     } else if (Jiffy().day == 4) {
-      if (event.steps != 0) {
+      if (event.steps > 0) {
         int todaysSteps = event.steps - tuesdayWalk;
         stepsBox.put(days[3], todaysSteps);
         stepsBox.put(days[4], 0);
@@ -246,7 +246,7 @@ class WalkNotifier extends ChangeNotifier {
         }
       }
     } else if (Jiffy().day == 5) {
-      if (event.steps != 0) {
+      if (event.steps > 0) {
         int todaysSteps = event.steps - wednesdayWalk;
         stepsBox.put(days[4], todaysSteps);
         stepsBox.put(days[5], 0);
@@ -269,7 +269,7 @@ class WalkNotifier extends ChangeNotifier {
         }
       }
     } else if (Jiffy().day == 6) {
-      if (event.steps != 0) {
+      if (event.steps > 0) {
         int todaysSteps = event.steps - thusdayWalk;
         print(" today $todaysSteps");
         print(event.steps);
@@ -294,7 +294,7 @@ class WalkNotifier extends ChangeNotifier {
         }
       }
     } else if (Jiffy().day == 7) {
-      if (event.steps != 0) {
+      if (event.steps > 0) {
         int todaysSteps = event.steps - fridayWalk;
         print(event.steps);
         stepsBox.put(days[6], todaysSteps);
