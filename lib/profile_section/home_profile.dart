@@ -13,7 +13,7 @@ class HomeProfileSection extends StatelessWidget {
         Text(
           "Profile",
           style: TextStyle(
-              color: Colors.black, fontWeight: FontWeight.w600, fontSize: 16.0, fontFamily: "Inter",),
+              color: Colors.black, fontWeight: FontWeight.w600, fontSize: 16.0,),
         ),
         SizedBox(
           height: 40.0,
@@ -23,7 +23,7 @@ class HomeProfileSection extends StatelessWidget {
           backgroundColor: Color(0xFFAEC5FF),
           child: Center(
             child: Text(
-              "CA",
+              "KO",
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 20.0,
@@ -35,7 +35,7 @@ class HomeProfileSection extends StatelessWidget {
           height: 24.0,
         ),
         Text(
-          "Cales Andrea",
+          "Kevin Ohiro",
           style: TextStyle(
             color: Colors.black,
             fontSize: 16.0,

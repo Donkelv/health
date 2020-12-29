@@ -74,8 +74,10 @@ class _TopHomeState extends State<TopHome> {
                 ),
               ),
               Material(
+                borderRadius: BorderRadius.circular(25.0),
                 color: Colors.transparent,
                 child: InkWell(
+                  borderRadius: BorderRadius.circular(25.0),
                   onTap: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context) => Profile()));
                   },
@@ -84,7 +86,7 @@ class _TopHomeState extends State<TopHome> {
                     backgroundColor: Color(0xFFAEC5FF),
                     child: Center(
                       child: Text(
-                        "CA",
+                        "KO",
                         style: TextStyle(
                           color: Color(0xFF0070FF),
                           fontSize: 13.0,
@@ -98,6 +100,14 @@ class _TopHomeState extends State<TopHome> {
             ]),
         SizedBox(
           height: 25.0,
+        ),
+        Text(
+          "Welcome Back Kevin Ohiro, lets get that Summer body!",
+          style: TextStyle(
+              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 15.0),
+        ),
+        SizedBox(
+          height: 15.0,
         ),
         Text(
           "Today's Highlights",
