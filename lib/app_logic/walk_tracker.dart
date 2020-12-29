@@ -31,17 +31,31 @@ class WalkNotifier extends ChangeNotifier {
 
   int _sundayBox;
 
+  int _sunday;
+
   int _mondayBox;
+
+  int _monday;
 
   int _tuesdayBox;
 
+  int _tuesday;
+
   int _wednesdayBox;
+
+  int _wednesday;
 
   int _thursdayBox;
 
+  int _thursday;
+
   int _fridayBox;
 
+  int _friday;
+
   int _saturdayBox;
+
+  int _saturday;
 
   String _stepCountError;
 
@@ -83,6 +97,14 @@ class WalkNotifier extends ChangeNotifier {
 
   int get sundayWalk => _sundayBox;
 
+
+  getSunday() async{
+    this._sunday = stepsBox.get("sundayMain");
+    notifyListeners();
+  }
+
+  int get sunday => _sunday;
+
   getMondayBox() async {
     //final box = await Hive.openBox("Monday");
 
@@ -91,6 +113,15 @@ class WalkNotifier extends ChangeNotifier {
   }
 
   int get mondayWalk => _mondayBox;
+
+  getMonday() async{
+    this._monday = stepsBox.get("mondayMain");
+    notifyListeners();
+  }
+
+  int get monday => _monday;
+
+
 
   getTuesdayBox() {
     //final box = await Hive.openBox("Tuesday");
@@ -101,6 +132,13 @@ class WalkNotifier extends ChangeNotifier {
 
   int get tuesdayWalk => _tuesdayBox;
 
+  getTuesday() async{
+    this._tuesday = stepsBox.get("tuesdayMain");
+    notifyListeners();
+  }
+
+  int get tuesday => _tuesday;
+
   getWednesdayBox() async {
     //final box = await Hive.openBox("Wednesday");
 
@@ -109,6 +147,13 @@ class WalkNotifier extends ChangeNotifier {
   }
 
   int get wednesdayWalk => _wednesdayBox;
+
+  getWednesday() async{
+    this._wednesday = stepsBox.get("wednesdayMain");
+    notifyListeners();
+  }
+
+  int get wednesday => _wednesday;
 
   getThursdayBox() async {
     //final box = await Hive.openBox("Thursday");
@@ -120,6 +165,13 @@ class WalkNotifier extends ChangeNotifier {
 
   int get thusdayWalk => _thursdayBox;
 
+  getThursday() async{
+    this._thursday = stepsBox.get("thursdayMain");
+    notifyListeners();
+  }
+
+  int get thursday => _thursday;
+
   getFridayBox() async {
     //final box = await Hive.openBox("Friday");
 
@@ -128,6 +180,13 @@ class WalkNotifier extends ChangeNotifier {
   }
 
   int get fridayWalk => _fridayBox;
+
+  getFriday() async{
+    this._friday = stepsBox.get("fridayMain");
+    notifyListeners();
+  }
+
+  int get friday => _friday;
 
   getSaturdayBox() async {
     //final box = await Hive.openBox("Saturday");
@@ -138,10 +197,18 @@ class WalkNotifier extends ChangeNotifier {
 
   int get saturdayWalk => _saturdayBox;
 
+  getSaturday() async{
+    this._saturday = stepsBox.get("saturdayMain");
+    notifyListeners();
+  }
+
+  int get saturday => _saturday;
+
   void onStepCount(event) {
     if (Jiffy().day == 1) {
       if (event.steps > 0) {
-        int todaySteps = event.steps - saturdayWalk;
+        int todaySteps = event.steps - saturday;
+        stepsBox.put("sundayMain", event.steps);
         stepsBox.put(days[0], todaySteps);
         stepsBox.put(days[1], 0);
         stepsBox.put(days[2], 0);
@@ -170,7 +237,8 @@ class WalkNotifier extends ChangeNotifier {
       }
     } else if (Jiffy().day == 2) {
       if (event.steps > 0) {
-        int todaysSteps = event.steps - sundayWalk;
+        int todaysSteps = event.steps - sunday;
+        stepsBox.put("mondayMain", event.steps);
         stepsBox.put(days[1], todaysSteps);
         stepsBox.put(days[2], 0);
         stepsBox.put(days[3], 0);
@@ -197,7 +265,8 @@ class WalkNotifier extends ChangeNotifier {
       }
     } else if (Jiffy().day == 3) {
       if (event.steps > 0) {
-        int todaysSteps = event.steps - mondayWalk;
+        int todaysSteps = event.steps - monday;
+        stepsBox.put("tuesdayMain", event.steps);
         stepsBox.put(days[2], todaysSteps);
         stepsBox.put(days[3], 0);
         stepsBox.put(days[4], 0);
@@ -224,7 +293,8 @@ class WalkNotifier extends ChangeNotifier {
       }
     } else if (Jiffy().day == 4) {
       if (event.steps > 0) {
-        int todaysSteps = event.steps - tuesdayWalk;
+        int todaysSteps = event.steps - tuesday;
+        stepsBox.put("wednesdayMain", event.steps);
         stepsBox.put(days[3], todaysSteps);
         stepsBox.put(days[4], 0);
         stepsBox.put(days[5], 0);
@@ -247,7 +317,8 @@ class WalkNotifier extends ChangeNotifier {
       }
     } else if (Jiffy().day == 5) {
       if (event.steps > 0) {
-        int todaysSteps = event.steps - wednesdayWalk;
+        int todaysSteps = event.steps - wednesday;
+        stepsBox.put("thursdayMain", event.steps);
         stepsBox.put(days[4], todaysSteps);
         stepsBox.put(days[5], 0);
         stepsBox.put(days[6], 0);
@@ -270,10 +341,10 @@ class WalkNotifier extends ChangeNotifier {
       }
     } else if (Jiffy().day == 6) {
       if (event.steps > 0) {
-        int todaysSteps = event.steps - thusdayWalk;
+        int todaysSteps = event.steps - thursday;
         print(" today $todaysSteps");
         print(event.steps);
-
+        stepsBox.put("fridayMain", event.steps);
         stepsBox.put(days[5], todaysSteps);
         stepsBox.put(days[6], 0);
 
@@ -295,8 +366,9 @@ class WalkNotifier extends ChangeNotifier {
       }
     } else if (Jiffy().day == 7) {
       if (event.steps > 0) {
-        int todaysSteps = event.steps - fridayWalk;
+        int todaysSteps = event.steps - friday;
         print(event.steps);
+        stepsBox.put("saturdayMain", event.steps);
         stepsBox.put(days[6], todaysSteps);
 
         this._walk = saturdayWalk;

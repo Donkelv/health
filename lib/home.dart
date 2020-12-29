@@ -15,12 +15,19 @@ class Home extends ConsumerWidget {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       walk.initPlatformState();
       walk.getSundayBox();
+      walk.getSunday();
       walk.getMondayBox();
+      walk.getMonday();
       walk.getTuesdayBox();
+      walk.getTuesday();
       walk.getWednesdayBox();
+      walk.getWednesday();
       walk.getThursdayBox();
+      walk.getThursday();
       walk.getFridayBox();
+      walk.getFriday();
       walk.getSaturdayBox();
+      walk.getSaturday();
     });
 
     //walk.heartMonitor();
