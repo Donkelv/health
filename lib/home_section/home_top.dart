@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:health/app_logic/walk_tracker.dart';
+import 'package:health/profile.dart';
+import 'package:health/profile_section/home_profile.dart';
 import 'package:pedometer/pedometer.dart';
 import 'package:hive/hive.dart';
 import 'package:fl_chart/fl_chart.dart';
@@ -71,16 +73,22 @@ class _TopHomeState extends State<TopHome> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              CircleAvatar(
-                radius: 25.0,
-                backgroundColor: Color(0xFFAEC5FF),
-                child: Center(
-                  child: Text(
-                    "CA",
-                    style: TextStyle(
-                      color: Color(0xFF0070FF),
-                      fontSize: 13.0,
-                      fontWeight: FontWeight.bold,
+              Material(
+                color: Colors.transparent,
+                child: InkWell(
+                  onTap: ()=> Navigator.push(context, MaterialPageRoute(builder: (context) => HomeProfileSection())),
+                  child: CircleAvatar(
+                    radius: 25.0,
+                    backgroundColor: Color(0xFFAEC5FF),
+                    child: Center(
+                      child: Text(
+                        "CA",
+                        style: TextStyle(
+                          color: Color(0xFF0070FF),
+                          fontSize: 13.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   ),
                 ),
