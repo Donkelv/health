@@ -102,7 +102,7 @@ class _TopHomeState extends State<TopHome> {
           height: 25.0,
         ),
         Text(
-          "Welcome Back Kevin Ohiro, lets get that Summer body!",
+          "Welcome Back Kevin Ohiro, lets get that Summer body 💪",
           style: TextStyle(
               color: Colors.black, fontWeight: FontWeight.bold, fontSize: 15.0),
         ),
@@ -146,7 +146,7 @@ class _TopHomeState extends State<TopHome> {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Text(
-                              "${widget.provider.walk} ",
+                              "${widget.provider.walk} 👏",
                               style: TextStyle(
                                 color: Colors.black,
                                 fontSize: 30.0,
