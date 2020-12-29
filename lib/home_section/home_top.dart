@@ -145,7 +145,7 @@ class _TopHomeState extends State<TopHome> {
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
-                            Text(
+                            Text(widget.provider.walk == 0 ? "${widget.provider.walk} 🥴" :
                               "${widget.provider.walk} 👏",
                               style: TextStyle(
                                 color: Colors.black,
