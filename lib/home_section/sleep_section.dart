@@ -34,55 +34,57 @@ class Sleep extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 20.0),
                 child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Last Night's Sleep",
-                        style: TextStyle(
-                          color: Color(0xFF6066FA),
-                          fontSize: 20.0,
-                          fontWeight: FontWeight.w600,
-                        ),
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Last Night's Sleep",
+                      style: TextStyle(
+                        color: Color(0xFF6066FA),
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.w600,
                       ),
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Text(
-                              "8  ",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 20.0,
-                                  fontWeight: FontWeight.w700),
-                            ),
-                            Text(
-                              "h",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 12.0,
-                                fontWeight: FontWeight.w200,
-                              ),
-                            ),
-                            SizedBox(
-                              width: 10.0,
-                            ),
-                            Text(
-                              "55  ",
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 20.0,
-                                  fontWeight: FontWeight.w700),
-                            ),
-                            Text(
-                              "m",
-                              style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 12.0,
-                                fontWeight: FontWeight.w200,
-                              ),
-                            ),
-                          ],),
-                    ],),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Text(
+                          "8  ",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.w700),
+                        ),
+                        Text(
+                          "h",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 12.0,
+                            fontWeight: FontWeight.w200,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10.0,
+                        ),
+                        Text(
+                          "55  ",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.w700),
+                        ),
+                        Text(
+                          "m",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 12.0,
+                            fontWeight: FontWeight.w200,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
