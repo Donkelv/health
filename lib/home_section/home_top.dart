@@ -76,7 +76,9 @@ class _TopHomeState extends State<TopHome> {
               Material(
                 color: Colors.transparent,
                 child: InkWell(
-                  onTap: ()=> Navigator.push(context, MaterialPageRoute(builder: (context) => HomeProfileSection())),
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => Profile()));
+                  },
                   child: CircleAvatar(
                     radius: 25.0,
                     backgroundColor: Color(0xFFAEC5FF),
